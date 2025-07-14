@@ -1,5 +1,40 @@
-# Flavour Fusion: AI Driven Recipe Blogging
-The Fusion Flavour Project leverages Generative AI (Gen AI) to innovate and create unique, data-driven flavour combinations. By analyzing global culinary trends, consumer preferences, and ingredient pairings, the project introduces never-before-seen fusion flavours tailored to modern tastes. This AI-powered approach enhances product development, market engagement, and efficiency, ensuring a competitive edge in the food industry.
+# 🍳 Flavour Fusion: AI-Powered Recipe Blog Generator
 
-**Conclusion:**
-The Fusion Flavour Project with Generative AI redefines flavour innovation, customer engagement, and business efficiency in the food industry. By harnessing AI, machine learning, and IoT, it creates a next-generation food experience, setting new standards for personalized, sustainable, and globally appealing flavours.
+Flavour Fusion is a simple and elegant Streamlit web app that generates recipe blog posts using Google Gemini 2.5 Pro. Enter a dish or ingredient, select your desired blog length, and get a unique, AI-written recipe in seconds.
+
+
+## 🚀 Features
+
+- ✨ AI-generated recipe blog posts
+- 🧠 Powered by Gemini 2.5 Pro (`generateContent`)
+- 🎛 Adjustable word count (50–500)
+- 😄 Fun programmer jokes while loading
+- 🎨 Stylish background design
+
+
+## 🔧 Setup Instructions
+
+1. **Install dependencies**
+ 
+   pip install streamlit google-generativeai
+
+2. **Set your Gemini API key**
+
+   genai.configure(api_key="YOUR_API_KEY")
+
+   [Get your API key from Google AI Studio](https://makersuite.google.com/app/apikey)
+
+3. **Run the app**
+
+   streamlit run recipe_blog_app.py
+
+## 📌 Model Used
+
+models/gemini-2.5-pro
+
+## 👩‍💻 Developed by
+
+Pendyala Bhavana
+
+B.Tech CSE | AI & Web Development Enthusiast
+
