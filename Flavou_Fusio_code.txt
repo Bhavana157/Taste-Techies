@@ -2,14 +2,19 @@ import streamlit as st
 import random
 import google.generativeai as genai
 
-genai.configure(api_key='AIzaSyDxOBb0DvyuVQrraLQHRa8wMSbNua9PYJo')
+genai.configure(api_key='Enter your API key')
 
 
 # Function to generate recipe content
 def generate_recipe(topic, word_count):
     prompt = f"Generate a {word_count}-word blog post about a delicious recipe for {topic}. Include ingredients, steps, and cooking tips."
-    response = genai.GenerativeModel("gemini-pro").generate_content(prompt)
-    return response.text if response.text else "Error generating content."
+    
+    model = genai.GenerativeModel("models/gemini-2.5-pro")
+
+    response = model.generate_content(prompt)
+    
+    return response.text if hasattr(response, 'text') else "Error generating content."
+
 
 # Function to tell a programmer joke
 def get_programmer_joke():
@@ -36,63 +41,9 @@ def set_background(image_url):
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Set background image
-set_background("https://t3.ftcdn.net/jpg/06/75/72/98/360_F_675729886_wpafoYC7P7QT6KDNNeHvNULUCJXgkVK2.jpg")
-st.title("Flavour Fusion: AI-Driven Recipe Blogging")
-st.write("Generate unique and customized recipe blimport streamlit as st
-import random
-import google.generativeai as genai
-
-genai.configure(api_key='AIzaSyDxOBb0DvyuVQrraLQHRa8wMSbNua9PYJo')
-
-
-# Function to generate recipe content
-def generate_recipe(topic, word_count):
-    prompt = f"Generate a {word_count}-word blog post about a delicious recipe for {topic}. Include ingredients, steps, and cooking tips."
-    response = genai.GenerativeModel("gemini-pro").generate_content(prompt)
-    return response.text if response.text else "Error generating content."
-
-# Function to tell a programmer joke
-def get_programmer_joke():
-    jokes = [
-        "Why do programmers prefer dark mode? Because light attracts bugs!",
-        "Why was the JavaScript developer sad? Because he didn’t ‘null’ his ex!",
-        "Why do Python programmers prefer snakes? Because they love indentation!",
-        "How do you comfort a JavaScript bug? You console it."
-    ]
-    return random.choice(jokes)
-
-# Streamlit UI
-def set_background(image_url):
-    page_bg_img = f"""
-    <style>
-    .stApp {{
-        background-image: url("{image_url}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }}
-    </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Set background image
-set_background("https://t3.ftcdn.net/jpg/06/75/72/98/360_F_675729886_wpafoYC7P7QT6KDNNeHvNULUCJXgkVK2.jpg")
+set_background("https://png.pngtree.com/background/20210710/original/pngtree-food-top-view-tomato-egg-noodles-literary-yellow-banner-picture-image_1013998.jpg")
 st.title("Flavour Fusion: AI-Driven Recipe Blogging")
 st.write("Generate unique and customized recipe blogs using AI!")
-
-# User inputs
-topic = st.text_input("Enter a recipe topic:")
-word_count = st.slider("Select word count:", min_value=50, max_value=500, value=200, step=50)
-
-generate_button = st.button("Generate Recipe Blog")
-
-if generate_button and topic:
-    with st.spinner(get_programmer_joke()):
-        blog_content = generate_recipe(topic, word_count)
-        st.subheader("Your AI-Generated Recipe Blog:")
-        st.write(blog_content)
-else:
-    st.warning("Please enter a recipe topic to proceed.")ogs using AI!")
 
 # User inputs
 topic = st.text_input("Enter a recipe topic:")
